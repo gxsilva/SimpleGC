@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:40:05 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/05/01 23:27:57 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/05/01 23:31:18 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,20 +84,19 @@ bool	gc_collect(void)
 {
 	t_gc_state	*gc_state;
 	t_gc_block	*gc_block;
-	t_gc_block	*gc_tmp_block;
 	
 	gc_state = gc_get_h();
 	if (!gc_state)
 		return (perror("GC: Invalid operation\n"), false);
 	gc_block = gc_state->allocations;
-	gc_tmp_block = NULL;
 	while (gc_block)
 	{
 		free (gc_block->ptr);
 		gc_block->ptr = NULL;
-		gc_tmp_block = gc_tmp_block;
 		gc_block = gc_block->next;
 	}
+	if (gc_state->allocations)
+		free (gc_state->allocations);
 	printf ("GC: Clean memory\n");
 	return (true);
 }
