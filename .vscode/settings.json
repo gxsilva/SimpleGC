@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "gc.h": "c",
+        "initializer_list": "c",
+        "stdbool.h": "c",
+        "stdio.h": "c"
+    }
+}
