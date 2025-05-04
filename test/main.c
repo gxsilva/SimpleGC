@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 20:21:36 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/05/01 23:39:20 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/05/04 14:21:06 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv, char **env)
 		values[i] = i * 1.5;
 
 	// Print the allocated memory list
-	gc_print_list();
+	gc_status();
 
 	// Perform garbage collection
 	gc_collect();

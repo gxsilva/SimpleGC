@@ -6,13 +6,13 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 22:26:17 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/05/01 23:22:25 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/05/04 14:24:12 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/gc.h"
 
-void	gc_print_list(void)
+void	gc_status(void)
 {
 	t_gc_block *gc_block_tmp;
 	t_gc_state *gc_state;
@@ -33,7 +33,6 @@ void	gc_print_list(void)
 		printf ("Pointer addrres:\t%p\n",gc_block_tmp->ptr);
 		printf ("Size of block memory:\t%ld\n",gc_block_tmp->size);
 		printf ("Tag of block memory:\t%s\n", gc_block_tmp->tag);
-		printf("\t-----------\t\n");
 		gc_block_tmp = gc_block_tmp->next;
 	}
 	return ;

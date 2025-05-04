@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:40:05 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/05/01 23:46:11 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/05/04 14:25:31 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static	void	update_gc_state(t_gc_state	*gc_state, t_gc_block	*block_ptr)
 	gc_state->total_size += block_ptr->size;
 }
 
-static bool	gc_track_ptr(void *ptr, unsigned long size, const char *tag)
+static int	gc_track_ptr(void *ptr, unsigned long size, const char *tag)
 {
 	t_gc_block	*block_ptr;
 	t_gc_state	*gc_state;
@@ -53,10 +53,10 @@ static bool	gc_track_ptr(void *ptr, unsigned long size, const char *tag)
 	gc_state = gc_get_h();
 	block_ptr = (t_gc_block *)malloc(sizeof(t_gc_block));
 	if (!block_ptr)
-		return (perror("GC: Malloc t_gc_block error\n"), false);
+		return (perror("GC: Malloc t_gc_block error\n"), 0);
 	init_t_gc_block(block_ptr, ptr, size, tag);
 	update_gc_state(gc_state, block_ptr);
-	return (true);
+	return (1);
 }
 
 void	*gc_malloc(unsigned long size, const char *tag)
@@ -80,7 +80,7 @@ void	*gc_malloc(unsigned long size, const char *tag)
 	return (gc_ptr);
 }
 
-bool	gc_collect(void)
+int	gc_collect(void)
 {
 	t_gc_state	*gc_state;
 	t_gc_block	*gc_block;
@@ -88,7 +88,7 @@ bool	gc_collect(void)
 	
 	gc_state = gc_get_h();
 	if (!gc_state)
-		return (perror("GC: Invalid operation\n"), false);
+		return (perror("GC: Invalid operation\n"), 0);
 	gc_block = gc_state->allocations;
 	while (gc_block)
 	{
@@ -101,5 +101,5 @@ bool	gc_collect(void)
 	gc_state->total_size = 0;
 	gc_state->num_allocations = 0;
 	printf("GC: Clean memory\n");
-	return (true);
+	return (1);
 }
