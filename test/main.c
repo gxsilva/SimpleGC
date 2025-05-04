@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 20:21:36 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/05/04 14:21:06 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/05/04 14:33:22 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ int	main(int argc, char **argv, char **env)
 	// Uncomment to print the list after collection
 	// gc_print_list();
 
-	return (EXIT_SUCCESS);
+	return (0);
 }
