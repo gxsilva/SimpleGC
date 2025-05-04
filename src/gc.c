@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:40:05 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/05/04 14:25:31 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/05/04 14:27:46 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	gc_init(void)
 	gc->allocations = NULL;
 	gc->total_size = 0;
 	gc->num_allocations = 0;
-	printf ("GC: GC initialize\n");
 }
 
 static void	init_t_gc_block(t_gc_block *block, void *ptr, unsigned long size, const char *tag)
@@ -100,6 +99,5 @@ int	gc_collect(void)
 	gc_state->allocations = NULL;
 	gc_state->total_size = 0;
 	gc_state->num_allocations = 0;
-	printf("GC: Clean memory\n");
 	return (1);
 }
