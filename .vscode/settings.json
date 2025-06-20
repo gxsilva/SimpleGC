@@ -3,6 +3,7 @@
         "gc.h": "c",
         "initializer_list": "c",
         "stdbool.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "stddef.h": "c"
     }
 }

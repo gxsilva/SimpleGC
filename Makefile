@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 22:51:34 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/05/01 23:14:31 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/06/20 16:42:08 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,37 +16,40 @@ AR = ar rcs
 CFLAGS = -Wall -Wextra -Werror
 
 # Directories
-SRC_DIR = ./src
-DEBUG_DIR = ./debug
-OBJECT_DIR = ./object
+SRC_DIR     = src
+DEBUG_DIR   = debug
+OBJECT_DIR  = obj
+BIN_DIR     = bin
 
-SRC_FILES	= $(SRC_DIR)/gc_utils.c \
-			$(SRC_DIR)/gc.c
-			
-DEBUG_FILE	= $(DEBUG_DIR)/gc_debug.c
+NAME        = gc
 
-SRCS	= $(SRC_FILES) \
-		$(DEBUG_FILE)
+SRC_FILES   = $(SRC_DIR)/gc_utils.c \
+              $(SRC_DIR)/gc.c
 
-OBJS = $(SRCS:.c=.o)
+DEBUG_FILE  = $(DEBUG_DIR)/gc_debug.c
 
-all: $(NAME)
+SRCS        = $(SRC_FILES) $(DEBUG_FILE)
+OBJS        = $(patsubst %.c,$(OBJECT_DIR)/%.o,$(SRCS))
 
-$(NAME): $(OBJS)
-	mkdir -p lib
-	$(AR) ./lib/lib$(NAME).a $(addprefix $(OBJECT_DIR)/, $(notdir $(OBJS)))
+CC          = gcc
+CFLAGS      = -Wall -Wextra -Werror
+AR          = ar rcs
 
-%.o: %.c
-	mkdir -p $(OBJECT_DIR)
+all: $(BIN_DIR)/lib$(NAME).a
+
+$(BIN_DIR)/lib$(NAME).a: $(OBJS)
+	@mkdir -p $(BIN_DIR)
+	$(AR) $@ $^
+
+$(OBJECT_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
-	mv $@ $(OBJECT_DIR)
 
 clean:
-	rm -rf $(OBJECT_DIR)/*.o
+	rm -rf $(OBJECT_DIR)
 
 fclean: clean
-	rm -rf lib
-	rm -f $(NAME)
+	rm -rf $(BIN_DIR)   # Alterado para BIN_DIR
 
 re: fclean all
 
