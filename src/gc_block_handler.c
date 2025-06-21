@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 17:44:02 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/21 17:47:02 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/21 18:55:40 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ int	gc_track_ptr(void *ptr, unsigned long size, const char *tag)
 	gc_state = gc_get_h();
 	block_ptr = (t_gc_block *)malloc(sizeof(t_gc_block));
 	if (!block_ptr)
-		return (perror("GC: Malloc t_gc_block failed\n"), 0);
+	{
+		if (DEBUG_FLAG)
+			perror("GC: Malloc t_gc_block failed\n");
+		return (0);
+	}
 	gc_block(block_ptr, ptr, size, tag);
 	update_gc_state(gc_state, block_ptr);
 	return (1);

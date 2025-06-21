@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:29:26 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/21 18:17:40 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/21 18:56:01 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GC_H
 
 # include "gc_structs.h"
+# include "gc_macros.h"
 
 # include <stdlib.h>
 # include <stdio.h>
