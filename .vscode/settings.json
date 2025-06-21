@@ -4,6 +4,7 @@
         "initializer_list": "c",
         "stdbool.h": "c",
         "stdio.h": "c",
-        "stddef.h": "c"
+        "stddef.h": "c",
+        "criterion.h": "c"
     }
 }
