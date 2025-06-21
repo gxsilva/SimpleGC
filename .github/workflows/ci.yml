@@ -2,6 +2,7 @@ name: Continuous Integration
 
 on:
   push:
+    branches: ['dev']
 
 jobs:
   Norminette:
@@ -39,7 +40,7 @@ jobs:
 
       - name: Build main program
         run: make
-        
+
       - name: Check if the binary exist
         run: |
           if [ -f ./bin/libgc.a ]; then

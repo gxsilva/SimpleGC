@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 22:51:34 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/20 16:42:08 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/06/21 17:45:17 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ BIN_DIR     = bin
 NAME        = gc
 
 SRC_FILES   = $(SRC_DIR)/gc_utils.c \
-              $(SRC_DIR)/gc.c
+              $(SRC_DIR)/gc.c \
+              $(SRC_DIR)/gc_block_handler.c
 
 DEBUG_FILE  = $(DEBUG_DIR)/gc_debug.c
 
