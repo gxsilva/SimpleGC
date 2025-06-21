@@ -1,13 +1,44 @@
 name: Continuous Integration
 
 on:
-    push:
+  push:
 
-        
 jobs:
-    Norminette:
-          uses: gxsilva/SimpleGC/.github/workflows/norm.yml@main
+  Norminette:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv shell
+        uses: astral-sh/setup-uv@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Create venv
+        run: python -m venv .venv
+      - name: Install and run Norminette
+        run: |
+          source .venv/bin/activate
+          pip install norminette
+          norminette src/ debug/ includes/
 
-    Build:
-        needs: Norminette
-        uses: gxsilva/SimpleGC/.github/workflows/build.yml@main
+  Build:
+    needs: Norminette
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc make
+      - name: Build main program
+        run: make
+      - name: Check if the binary exist
+        run: |
+          if [ -f ./bin/libgc.a ]; then
+            echo "Binary compiled successfully"
+            ls -la ./bin/libgc.a
+          else
+            echo "Binary not found"
+            exit 1
+          fi
