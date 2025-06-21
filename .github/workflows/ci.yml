@@ -50,3 +50,21 @@ jobs:
             echo "Binary not found"
             exit 1
           fi
+  Test:
+    needs: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc make
+      
+      - name: Build test with main program
+        run: |
+          make test
+          if [ $? -ne 0 ]; then
+            echo "Test execution failed"
+            exit 1
+          fi

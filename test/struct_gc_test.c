@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:02:17 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/21 18:17:49 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/21 18:54:22 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,5 @@ Test(gc_malloc_test, struct_malloc_free)
 	cr_expect(p->x == 50 && p->y == 60, "Struct values are incorrect");
 
 	cr_expect(p, "gc_free failed to deallocate struct");
-
 	gc_clear();
 }
