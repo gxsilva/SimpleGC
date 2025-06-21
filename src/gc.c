@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:40:05 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/21 17:45:57 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/21 18:17:32 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ int	gc_clear(void)
 	while (gc_block)
 	{
 		gc_tmp_block = gc_block->next;
-		free(gc_block->ptr);
+		if (gc_block->ptr)
+			free(gc_block->ptr);
 		free(gc_block);
 		gc_block = gc_tmp_block;
 	}
