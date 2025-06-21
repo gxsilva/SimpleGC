@@ -6,8 +6,8 @@ on:
         
 jobs:
     Norminette:
-          uses: gxsilva/SimpleGC/.github/workflows/norm.yml
+          uses: gxsilva/SimpleGC/.github/workflows/norm.yml@main
 
     Build:
         needs: Norminette
-        uses: gxsilva/SimpleGC/.github/workflows/build.yml
+        uses: gxsilva/SimpleGC/.github/workflows/build.yml@main
