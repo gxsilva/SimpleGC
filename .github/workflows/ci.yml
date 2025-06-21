@@ -1,0 +1,12 @@
+name: Continuous Integration
+
+on:
+    push:
+
+jobs:
+    Norminette:
+          uses: ./.github/workflows/norm.yml
+
+    Build:
+        needs: Norminette
+        uses: ./.github/workflows/build.yml

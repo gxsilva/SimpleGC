@@ -1,9 +1,10 @@
-name: Continuos Integration
+name: Build application
 
-on: push
+on:
+  workflow_call:
 
 jobs:
-  continuos-integration:
+  build:
     runs-on: ubuntu-latest
 
     steps:
