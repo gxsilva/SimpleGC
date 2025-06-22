@@ -6,13 +6,13 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:54:41 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/21 18:55:04 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/21 23:00:28 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GC_MACROS_H
 # define GC_MACROS_H
 
-# define DEBUG_FLAG 0
+# define DEBUG_FLAG 1
 
 #endif // GC_MACROS_H

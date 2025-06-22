@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:29:26 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/21 18:56:01 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/21 23:14:00 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 //common function(s)
 int			gc_strcmp(const char *s1, const char *s2);
+char		*gc_strdup(const char *s);
 
 //GC function(s)
 t_gc_state	*gc_get_h(void);
@@ -30,8 +31,8 @@ void		*gc_malloc(unsigned long size, const char *tag);
 int			gc_clear(void);
 
 //GC block ptr handler
-void		gc_block(t_gc_block *block, void *ptr, long size, const char *tag);
-void		update_gc_state(t_gc_state	*gc_state, t_gc_block	*block_ptr);
+void		gc_node_track(t_gc_node *block, void *ptr, long size, const char *tag);
+void		update_gc_state(t_gc_state	*gc_state, t_gc_node	*block_ptr);
 int			gc_track_ptr(void *ptr, unsigned long size, const char *tag);
 
 //Debug function(s)

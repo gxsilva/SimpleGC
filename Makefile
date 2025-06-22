@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 22:51:34 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/21 18:22:18 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/06/21 20:34:15 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ test: re
 	@cd ./test && gcc *.c ../bin/lib$(NAME).a -lcriterion -o all_test && ./all_test
 
 fclean: clean
-	rm -rf $(BIN_DIR)   # Alterado para BIN_DIR
+	rm -rf $(BIN_DIR)
 
 re: fclean all
 
