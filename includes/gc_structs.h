@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:29:58 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/21 22:48:09 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/22 01:10:12 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,23 @@ struct gc_state;
 
 typedef struct gc_node_track
 {
-	void			*ptr;
-	unsigned long	size;
-	char			*tag;
-	struct gc_node_track		*next;
-	struct gc_node_track		*prev;
-	struct gc_table		*table_h;
+	void					*ptr;
+	unsigned long			size;
+	char					*tag;
+	struct gc_node_track	*next;
+	struct gc_node_track	*prev;
+	struct gc_table			*table_h;
+
 }	t_gc_node;
 
 typedef struct gc_table
 {
-	char			*tag;
+	char					*tag;
 	struct gc_node_track	*gc_head_node;
-	unsigned int	group_node_cnt;
-	struct gc_table		*gc_next;
-	struct gc_table		*gc_prev;
+	unsigned int			group_node_cnt;
+	struct gc_table			*gc_next;
+	struct gc_table			*gc_prev;
+
 }	t_gc_group;
 
 typedef struct gc_state
@@ -44,6 +46,7 @@ typedef struct gc_state
 	unsigned int	group_cnt;
 	unsigned int	node_cnt;
 	unsigned long	memory_allocated;
+	
 }	t_gc_state;
 
 #endif

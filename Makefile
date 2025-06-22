@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 22:51:34 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/21 20:34:15 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/06/22 01:05:36 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,10 @@ NAME        = gc
 
 SRC_FILES   = $(SRC_DIR)/gc_utils.c \
               $(SRC_DIR)/gc.c \
-              $(SRC_DIR)/gc_block_handler.c
+              $(SRC_DIR)/gc_clear_handler.c \
+              $(SRC_DIR)/gc_group_handler.c \
+              $(SRC_DIR)/gc_node_handler.c \
+              $(SRC_DIR)/gc_wildcard.c \
 
 DEBUG_FILE  = $(DEBUG_DIR)/gc_debug.c
 
